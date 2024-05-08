@@ -55,7 +55,7 @@ Ingredient(**data)
 <div class="cell code" execution_count="3">
 
 ``` python
-# Nutritional values of 2 apples (summed)
+# nutritional value of 2 apples (summed)
 2 * apple
 ```
 
@@ -80,9 +80,9 @@ Ingredient(**data)
 
 A new ingredient can be created from an old one by setting a new amount,
 as well as any `kwargs` (except `name`) used in the definition of the
-ingredient. This makes it easy to caluate the nutritional values of the
-same ingredient with a different amount, such as for a larger (or
-smaller) apple.
+ingredient. This makes it easy to calculate the nutritional value of the
+same ingredient with a different weight/volume, such as for a smaller
+apple.
 
 </div>
 
@@ -112,8 +112,8 @@ apple2
 
 <div class="cell markdown">
 
-You might also want to know the amount required to reach intake of, say
-3 grams of fiber. Simple, just supply fiber as the parameter of the
+You might also want to know the amount required to reach an intake of,
+say 3 grams of fiber. Simple, just supply fiber as the parameter of the
 `.to()` method.
 
 </div>
@@ -143,14 +143,14 @@ apple.to(fiber=3)
 <div class="cell markdown">
 
 Different ingredients can be added together. For instance, the code
-below calculates the nutritional values of apple milk.
+below calculates the nutritional value of apple milk.
 
 </div>
 
 <div class="cell code" execution_count="6">
 
 ``` python
-# Apple milk nutritional values per 1g of protein
+# Apple milk nutritional value per 1g of protein
 # Note that amount is (auto-)discarded since 
 # milk is measured in volume while apple in weights
 apple + milk
@@ -161,10 +161,10 @@ apple + milk
     Nutrition         Quantity
     --------------  ----------
     Servings               1
+    Total calories       280
+    Total dollars         25
     Total fiber            1
     Total protein          3.5
-    Total dollars         25
-    Total calories       280
 
 </div>
 
@@ -208,11 +208,11 @@ recipe
     --------------  ----------
     Servings        1
     Total amount    110.0 gram
+    Total calories  235.0
     Total fat       30.0
-    Total dollars   24.0
     Total fiber     4.3
     Total protein   9.55
-    Total calories  235.0
+    Total dollars   24.0
 
 </div>
 
@@ -239,11 +239,11 @@ recipe
     --------------  ----------
     Servings        1
     Total amount    350.0 gram
+    Total calories  355.0
     Total fat       30.0
-    Total dollars   39.0
     Total fiber     5.8
     Total protein   10.3
-    Total calories  355.0
+    Total dollars   39.0
 
 </div>
 
@@ -276,11 +276,11 @@ recipe
     --------------  ----------
     Servings        1
     Total amount    350.0 gram
+    Total calories  355.0
     Total fat       30.0
-    Total dollars   39.0
     Total fiber     5.8
     Total protein   10.3
-    Total calories  355.0
+    Total dollars   39.0
 
 </div>
 
@@ -306,11 +306,11 @@ recipe.to(amount = '100gram')  # change of basis
     --------------  ----------
     Servings        1
     Total amount    100.0 gram
+    Total calories  101.43
     Total fat       8.57
-    Total dollars   11.14
     Total fiber     1.66
     Total protein   2.94
-    Total calories  101.43
+    Total dollars   11.14
 
 </div>
 
@@ -319,7 +319,6 @@ recipe.to(amount = '100gram')  # change of basis
 <div class="cell code" execution_count="11">
 
 ``` python
-# Deal with servings (multiplication) rule with class Recipe?
 recipe.to(amount = '100gram')  # change of basis
 ```
 
@@ -337,11 +336,11 @@ recipe.to(amount = '100gram')  # change of basis
     --------------  ----------
     Servings        1
     Total amount    100.0 gram
+    Total calories  101.43
     Total fat       8.57
-    Total dollars   11.14
     Total fiber     1.66
     Total protein   2.94
-    Total calories  101.43
+    Total dollars   11.14
 
 </div>
 
@@ -373,11 +372,11 @@ recipe
     --------------  ----------
     Servings        1
     Total amount    350.0 gram
+    Total calories  355.0
     Total fat       30.0
-    Total dollars   39.0
     Total fiber     5.8
     Total protein   10.3
-    Total calories  355.0
+    Total dollars   39.0
 
 </div>
 
@@ -386,7 +385,7 @@ recipe
 <div class="cell code" execution_count="13">
 
 ``` python
-# Export nutritional values
+# Export nutritional value
 recipe.export_csv("FruitCake.csv") 
 recipe.export_xlsx("FruitCake.xlsx") 
 ```
@@ -417,11 +416,11 @@ recipe
     --------------  ----------
     Servings        1
     Total amount    350.0 gram
+    Total calories  355.0
     Total fat       30.0
-    Total dollars   39.0
     Total fiber     5.8
     Total protein   10.3
-    Total calories  355.0
+    Total dollars   39.0
 
 </div>
 
@@ -448,11 +447,11 @@ recipe
     --------------  ----------
     Servings        1
     Total amount    350.0 gram
+    Total calories  355.0
     Total fat       30.0
-    Total dollars   39.0
     Total fiber     5.8
     Total protein   10.3
-    Total calories  355.0
+    Total dollars   39.0
 
 </div>
 
