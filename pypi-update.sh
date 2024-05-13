@@ -12,5 +12,5 @@ echo $(echo $num1 + 1 | bc) > VERSION
 [[ -d build/ ]] && rm -r build/ 
 [[ -d dist/ ]] && rm -r dist/
 [[ -d nutrical.egg-info/ ]] && rm -r nutrical.egg-info/
-python setup.py sdist &&
+python setup.py sdist bdist_wheel &&
 twine upload --verbose --repository pypi dist/*
