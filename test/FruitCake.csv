@@ -1,5 +1,5 @@
-name,servings,amount,calories,fat,fiber,protein,dollars
-banana,1,80 gram,70,,1.6,1,9
-peanut,1.5,20 gram,110,20,1.8,5.7,10
-apple,1.5,160 gram,80,,1,0.5,10
-<TOTAL>,,350.0 gram,355.0,30.0,5.800000000000001,10.3,39.0
+name,servings,amount,calories,dollars,protein,fat,fiber
+banana,1,80 gram,70,9,1,,1.6
+peanut,1.5,20 gram,110,10,5.7,20,1.8
+apple,1.5,160 gram,80,10,0.5,,1
+<TOTAL>,,350.0 gram,355.0,39.0,10.3,30.0,5.800000000000001

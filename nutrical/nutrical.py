@@ -9,8 +9,8 @@
 import csv
 from pathlib import Path
 from numbers import Number
-from tabulate import tabulate
 from .utils import parse_amount, add_amount, round2
+from .tabulate import *
 
 RDIGIT = 2
 
@@ -23,9 +23,19 @@ class Recipe:
     
 
     def __repr__(self):
-        ingredients = tabulate(self.ingredients, headers=["Ingredient", "Servings", "Quantity"])
+        # ingredients = tabulate(self.ingredients, headers=["Ingredient", "Servings", "Quantity"])
         h = f"<Recipe ({self.name})>" if self.name is not None else "<Recipe>"
-        return f"{h}\n\n{ingredients}\n\n{str(self.total)}\n"
+
+        headers = ['servings', 'amount', *self.total.nutrition]
+        if self.total.total_amount is None:
+            headers = [x for x in headers if x != 'amount']
+        total = Table( [self.total], headers=headers, cat=False, rowIndex=False, noName=True)
+        total = indent_block(total)
+
+        ingredients = "[INGREDIENTS]\n" + indent_block(Table(self.components, cat=False))
+        ingredients = indent_block(ingredients)
+        
+        return f"{h}\n\n{total}\n\n{ingredients}\n"
 
 
     @property
@@ -109,7 +119,7 @@ class Recipe:
 class Ingredient:
     servings = 1
     
-    def __init__(self, name=None, amount='100g', **kwargs):
+    def __init__(self, name=None, amount=None, **kwargs):
         self.name = name
         self.amount = parse_amount(amount)
         self.nutrition = {}
@@ -145,21 +155,7 @@ class Ingredient:
 
 
     def __repr__(self):
-        repr = {
-            "Servings": self.servings,
-            "Total amount": self.total_amount,
-            **{ f"Total {k}":self.get_agg_nutri(k) for k in self.nutrition }
-        }
-        repr2 = {}
-        for k, v in repr.items():
-            if v is None: continue  # Skip empty values
-            if not isinstance(v, str):
-                v = round(v, RDIGIT)
-            if k == "Total amount":
-                v = str(v)
-            repr2[k] = v
-        s = tabulate(repr2.items(), headers=["Nutrition", "Quantity"])
-        return s
+        return Table([self], headers=None, digits=2, cat=False, rowIndex=False, noName=(self.name is None))
 
     ########################################################################################
     #### To Do: think clearly about how amount/unit gets added when defining servings #####

@@ -3,6 +3,9 @@ Nutritional value calculation for recipes and ingredients
 
 `nutrical` provides an object-oriented interface for defining and manipulating the nutritional value of ingredients and recipes.
 
+- [Live demo](https://yongfu.name/nutrical-demo/)
+
+
 <!-- pandoc test/test.ipynb --to gfm | xclip/pbcopy -->
 <div class="cell markdown">
 
@@ -41,12 +44,9 @@ Ingredient(**data)
 
 <div class="output execute_result" execution_count="2">
 
-    Nutrition            Quantity
-    -------------------  ----------
-    Servings             1
-    Total amount         150 gram
-    Total dollar         20
-    Total soluble fiber  1
+    name      servings  amount      dollar    soluble fiber
+    ------  ----------  --------  --------  ---------------
+    hi               1  150 gram        20                1
 
 </div>
 
@@ -61,14 +61,9 @@ Ingredient(**data)
 
 <div class="output execute_result" execution_count="3">
 
-    Nutrition       Quantity
-    --------------  ----------
-    Servings        2
-    Total amount    320 gram
-    Total calories  160
-    Total protein   1.0
-    Total fiber     2
-    Total dollars   20
+    name      servings  amount      calories    protein    fiber    dollars
+    ------  ----------  --------  ----------  ---------  -------  ---------
+    apple            2  320 gram         160          1        2         20
 
 </div>
 
@@ -97,14 +92,9 @@ apple2
 
 <div class="output execute_result" execution_count="4">
 
-    Nutrition       Quantity
-    --------------  ----------
-    Servings        1
-    Total amount    160 gram
-    Total calories  80
-    Total protein   0.5
-    Total fiber     1
-    Total dollars   10
+    name      servings  amount      calories    protein    fiber    dollars
+    ------  ----------  --------  ----------  ---------  -------  ---------
+    apple            1  160 gram          80        0.5        1         10
 
 </div>
 
@@ -127,14 +117,9 @@ apple.to(fiber=3)
 
 <div class="output execute_result" execution_count="5">
 
-    Nutrition       Quantity
-    --------------  ----------
-    Servings        3.0
-    Total amount    480.0 gram
-    Total calories  240.0
-    Total protein   1.5
-    Total fiber     3.0
-    Total dollars   30.0
+    name      servings  amount        calories    protein    fiber    dollars
+    ------  ----------  ----------  ----------  ---------  -------  ---------
+    apple            3  480.0 gram         240        1.5        3         30
 
 </div>
 
@@ -158,13 +143,9 @@ apple + milk
 
 <div class="output execute_result" execution_count="6">
 
-    Nutrition         Quantity
-    --------------  ----------
-    Servings               1
-    Total calories       280
-    Total dollars         25
-    Total fiber            1
-    Total protein          3.5
+      servings  amount      dollars    calories    fiber    protein
+    ----------  --------  ---------  ----------  -------  ---------
+             1                   25         280        1        3.5
 
 </div>
 
@@ -199,20 +180,15 @@ recipe
 
     <Recipe (Fruit Cake)>
 
-    Ingredient      Servings  Quantity
-    ------------  ----------  ----------
-    banana               1    80 gram
-    peanut               1.5  30.0 gram
+        servings  amount        calories    dollars    protein    fat    fiber
+      ----------  ----------  ----------  ---------  ---------  -----  -------
+               1  110.0 gram         235         24       9.55     30      4.3
 
-    Nutrition       Quantity
-    --------------  ----------
-    Servings        1
-    Total amount    110.0 gram
-    Total calories  235.0
-    Total fat       30.0
-    Total fiber     4.3
-    Total protein   9.55
-    Total dollars   24.0
+      [INGREDIENTS]
+            name      servings  amount       calories    protein    fiber    dollars    fat
+        --  ------  ----------  ---------  ----------  ---------  -------  ---------  -----
+         1  banana         1    80 gram            70       1         1.6          9
+         2  peanut         1.5  30.0 gram         165       8.55      2.7         15     30
 
 </div>
 
@@ -229,21 +205,16 @@ recipe
 
     <Recipe (Fruit Cake)>
 
-    Ingredient      Servings  Quantity
-    ------------  ----------  ----------
-    banana               1    80 gram
-    peanut               1.5  30.0 gram
-    apple                1.5  240.0 gram
+        servings  amount        calories    dollars    protein    fat    fiber
+      ----------  ----------  ----------  ---------  ---------  -----  -------
+               1  350.0 gram         355         39       10.3     30      5.8
 
-    Nutrition       Quantity
-    --------------  ----------
-    Servings        1
-    Total amount    350.0 gram
-    Total calories  355.0
-    Total fat       30.0
-    Total fiber     5.8
-    Total protein   10.3
-    Total dollars   39.0
+      [INGREDIENTS]
+            name      servings  amount        calories    protein    fiber    dollars    fat
+        --  ------  ----------  ----------  ----------  ---------  -------  ---------  -----
+         1  banana         1    80 gram             70       1         1.6          9
+         2  peanut         1.5  30.0 gram          165       8.55      2.7         15     30
+         3  apple          1.5  240.0 gram         120       0.75      1.5         15
 
 </div>
 
@@ -266,21 +237,16 @@ recipe
 
     <Recipe (Cake)>
 
-    Ingredient      Servings  Quantity
-    ------------  ----------  ----------
-    banana               1    80 gram
-    peanut               1.5  30.0 gram
-    apple                1.5  240.0 gram
+        servings  amount        calories    dollars    protein    fat    fiber
+      ----------  ----------  ----------  ---------  ---------  -----  -------
+               1  350.0 gram         355         39       10.3     30      5.8
 
-    Nutrition       Quantity
-    --------------  ----------
-    Servings        1
-    Total amount    350.0 gram
-    Total calories  355.0
-    Total fat       30.0
-    Total fiber     5.8
-    Total protein   10.3
-    Total dollars   39.0
+      [INGREDIENTS]
+            name      servings  amount        calories    protein    fiber    dollars    fat
+        --  ------  ----------  ----------  ----------  ---------  -------  ---------  -----
+         1  banana         1    80 gram             70       1         1.6          9
+         2  peanut         1.5  30.0 gram          165       8.55      2.7         15     30
+         3  apple          1.5  240.0 gram         120       0.75      1.5         15
 
 </div>
 
@@ -296,21 +262,16 @@ recipe.to(amount = '100gram')  # change of basis
 
     <Recipe (Cake)>
 
-    Ingredient      Servings  Quantity
-    ------------  ----------  ----------
-    banana              0.29  22.86 gram
-    peanut              0.43  8.57 gram
-    apple               0.43  68.57 gram
+        servings  amount        calories    dollars    protein    fat    fiber
+      ----------  ----------  ----------  ---------  ---------  -----  -------
+               1  100.0 gram      101.43      11.14       2.94   8.57     1.66
 
-    Nutrition       Quantity
-    --------------  ----------
-    Servings        1
-    Total amount    100.0 gram
-    Total calories  101.43
-    Total fat       8.57
-    Total fiber     1.66
-    Total protein   2.94
-    Total dollars   11.14
+      [INGREDIENTS]
+            name      servings  amount        calories    protein    fiber    dollars    fat
+        --  ------  ----------  ----------  ----------  ---------  -------  ---------  -----
+         1  banana    0.285714  22.86 gram       20          0.29     0.46       2.57
+         2  peanut    0.428571  8.57 gram        47.14       2.44     0.77       4.29   8.57
+         3  apple     0.428571  68.57 gram       34.29       0.21     0.43       4.29
 
 </div>
 
@@ -326,21 +287,16 @@ recipe.to(amount = '100gram')  # change of basis
 
     <Recipe (Cake)>
 
-    Ingredient      Servings  Quantity
-    ------------  ----------  ----------
-    banana              0.29  22.86 gram
-    peanut              0.43  8.57 gram
-    apple               0.43  68.57 gram
+        servings  amount        calories    dollars    protein    fat    fiber
+      ----------  ----------  ----------  ---------  ---------  -----  -------
+               1  100.0 gram      101.43      11.14       2.94   8.57     1.66
 
-    Nutrition       Quantity
-    --------------  ----------
-    Servings        1
-    Total amount    100.0 gram
-    Total calories  101.43
-    Total fat       8.57
-    Total fiber     1.66
-    Total protein   2.94
-    Total dollars   11.14
+      [INGREDIENTS]
+            name      servings  amount        calories    protein    fiber    dollars    fat
+        --  ------  ----------  ----------  ----------  ---------  -------  ---------  -----
+         1  banana    0.285714  22.86 gram       20          0.29     0.46       2.57
+         2  peanut    0.428571  8.57 gram        47.14       2.44     0.77       4.29   8.57
+         3  apple     0.428571  68.57 gram       34.29       0.21     0.43       4.29
 
 </div>
 
@@ -362,21 +318,16 @@ recipe
 
     <Recipe (Cake)>
 
-    Ingredient      Servings  Quantity
-    ------------  ----------  ----------
-    banana               1    80 gram
-    peanut               1.5  30.0 gram
-    apple                1.5  240.0 gram
+        servings  amount        calories    dollars    protein    fat    fiber
+      ----------  ----------  ----------  ---------  ---------  -----  -------
+               1  350.0 gram         355         39       10.3     30      5.8
 
-    Nutrition       Quantity
-    --------------  ----------
-    Servings        1
-    Total amount    350.0 gram
-    Total calories  355.0
-    Total fat       30.0
-    Total fiber     5.8
-    Total protein   10.3
-    Total dollars   39.0
+      [INGREDIENTS]
+            name      servings  amount        calories    protein    fiber    dollars    fat
+        --  ------  ----------  ----------  ----------  ---------  -------  ---------  -----
+         1  banana         1    80 gram             70       1         1.6          9
+         2  peanut         1.5  30.0 gram          165       8.55      2.7         15     30
+         3  apple          1.5  240.0 gram         120       0.75      1.5         15
 
 </div>
 
@@ -406,21 +357,16 @@ recipe
 
     <Recipe (FruitCake)>
 
-    Ingredient      Servings  Quantity
-    ------------  ----------  ----------
-    banana               1    80.0 gram
-    peanut               1.5  30.0 gram
-    apple                1.5  240.0 gram
+        servings  amount        calories    dollars    protein    fat    fiber
+      ----------  ----------  ----------  ---------  ---------  -----  -------
+               1  350.0 gram         355         39       10.3     30      5.8
 
-    Nutrition       Quantity
-    --------------  ----------
-    Servings        1
-    Total amount    350.0 gram
-    Total calories  355.0
-    Total fat       30.0
-    Total fiber     5.8
-    Total protein   10.3
-    Total dollars   39.0
+      [INGREDIENTS]
+            name      servings  amount        calories    dollars    protein    fat    fiber
+        --  ------  ----------  ----------  ----------  ---------  ---------  -----  -------
+         1  banana         1    80.0 gram           70          9       1         0      1.6
+         2  peanut         1.5  30.0 gram          165         15       8.55     30      2.7
+         3  apple          1.5  240.0 gram         120         15       0.75      0      1.5
 
 </div>
 
@@ -437,21 +383,16 @@ recipe
 
     <Recipe (FruitCake)>
 
-    Ingredient      Servings  Quantity
-    ------------  ----------  ----------
-    banana               1    80.0 gram
-    peanut               1.5  30.0 gram
-    apple                1.5  240.0 gram
+        servings  amount        calories    dollars    protein    fat    fiber
+      ----------  ----------  ----------  ---------  ---------  -----  -------
+               1  350.0 gram         355         39       10.3     30      5.8
 
-    Nutrition       Quantity
-    --------------  ----------
-    Servings        1
-    Total amount    350.0 gram
-    Total calories  355.0
-    Total fat       30.0
-    Total fiber     5.8
-    Total protein   10.3
-    Total dollars   39.0
+      [INGREDIENTS]
+            name      servings  amount        calories    dollars    protein    fat    fiber
+        --  ------  ----------  ----------  ----------  ---------  ---------  -----  -------
+         1  banana         1    80.0 gram           70          9       1         0      1.6
+         2  peanut         1.5  30.0 gram          165         15       8.55     30      2.7
+         3  apple          1.5  240.0 gram         120         15       0.75      0      1.5
 
 </div>
 
@@ -459,7 +400,7 @@ recipe
 
 <div class="cell markdown">
 
-## Example: Home-made Yogurt
+## Example 1: Home-made Yogurt
 
 </div>
 
@@ -497,17 +438,16 @@ yogurt
 
     <Recipe (yogurt)>
 
-    Ingredient             Servings  Quantity
-    -------------------  ----------  -----------
-    milk powder                5.04  161.23 gram
-    water                      2.32  463.77 gram
-    probiotics (yogurt)        1     75 gram
+        servings  amount        protein
+      ----------  ----------  ---------
+               1  700.0 gram         42
 
-    Nutrition      Quantity
-    -------------  ----------
-    Servings       1
-    Total amount   700.0 gram
-    Total protein  42.0
+      [INGREDIENTS]
+            name                   servings  amount         protein
+        --  -------------------  ----------  -----------  ---------
+         1  milk powder             5.03846  161.23 gram       39.3
+         2  water                   2.31885  463.77 gram
+         3  probiotics (yogurt)     1        75 gram            2.7
 
 </div>
 
@@ -523,17 +463,75 @@ yogurt.to(amount='100g')
 
     <Recipe (yogurt)>
 
-    Ingredient             Servings  Quantity
-    -------------------  ----------  ----------
-    milk powder                0.72  23.03 gram
-    water                      0.33  66.25 gram
-    probiotics (yogurt)        0.14  10.71 gram
+        servings  amount        protein
+      ----------  ----------  ---------
+               1  100.0 gram          6
 
-    Nutrition      Quantity
-    -------------  ----------
-    Servings       1
-    Total amount   100.0 gram
-    Total protein  6.0
+      [INGREDIENTS]
+            name                   servings  amount        protein
+        --  -------------------  ----------  ----------  ---------
+         1  milk powder            0.71978   23.03 gram       5.61
+         2  water                  0.331264  66.25 gram
+         3  probiotics (yogurt)    0.142857  10.71 gram       0.39
+
+</div>
+
+</div>
+
+<div class="cell markdown">
+
+## Example 2: Cost-efficient Protein
+
+Say, I have a limited budget on protein supplements. In order to reach
+the recommened amount of protein intake, I would like to find the most
+cost-efficient protein source available to me.
+
+| Product         | Unit     | Protein (g) | Price (NTD) |
+|-----------------|----------|-------------|-------------|
+| Whey            | 1 bag    | 1000 \* .8  | 499         |
+| Casein          | 1 bag    | 907 \* .8   | 1200        |
+| Egg (7-11)      | 1 egg    | 6           | 10          |
+| Egg (raw)       | 1 box    | 10 \* 6     | 59          |
+| Tofu            | 1 box    | 4 \* 8.5    | 35          |
+| Dry milk        | 1 can    | 7.8 \* 81   | 789         |
+| Soy milk (7-11) | 1 bottle | 3.4 \* 4    | 25          |
+
+Above are some of the candidates. Let's find out which of them has the
+**lowest price per gram of protein**. The `nutrical.Rank` function can
+help with this.
+
+</div>
+
+<div class="cell code" execution_count="19">
+
+``` python
+from nutrical import Rank
+from nutrical import Ingredient as I
+
+sources_of_protein = [
+    I("Whey",            protein = 1000 * .8, price = 499),
+    I("Casein",          protein =  907 * .8, price = 1200),
+    I("Egg (7-11)",      protein = 6        , price = 10),
+    I("Egg (raw)" ,      protein = 6        , price = 6),
+    I("Tofu",            protein = 8.5 * 4  , price = 35),
+    I("Dry milk",        protein = 7.8 * 81 , price = 789),
+    I("Soy milk (7-11)", protein = 3.4 * 4  , price = 25),
+]
+
+Rank( sources_of_protein, by='dollars', protein=1 )
+```
+
+<div class="output stream stdout">
+
+        name               dollars    protein
+    --  ---------------  ---------  ---------
+     1  Whey                  0.62          1
+     2  Egg (raw)             1             1
+     3  Tofu                  1.03          1
+     4  Dry milk              1.25          1
+     5  Casein                1.65          1
+     6  Egg (7-11)            1.67          1
+     7  Soy milk (7-11)       1.84          1
 
 </div>
 
