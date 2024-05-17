@@ -518,7 +518,7 @@ sources_of_protein = [
     I("Soy milk (7-11)", protein = 3.4 * 4  , price = 25),
 ]
 
-Rank( sources_of_protein, by='dollars', protein=1 )
+Rank( sources_of_protein, by='price', protein=1 )
 ```
 
 <div class="output stream stdout">
