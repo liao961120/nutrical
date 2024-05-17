@@ -21,7 +21,7 @@ pip install nutrical
 
 </div>
 
-<div class="cell code" execution_count="1">
+<div class="cell code" execution_count="20">
 
 ``` python
 from nutrical import Ingredient, Recipe
@@ -34,7 +34,7 @@ milk = Ingredient("milk", amount="1 cup", calories=200, protein=3, dollars=15)
 
 </div>
 
-<div class="cell code" execution_count="2">
+<div class="cell code" execution_count="21">
 
 ``` python
 # Programmatic construction
@@ -42,7 +42,7 @@ data = {'name': 'hi', 'amount': '150g', 'dollar': 20, 'Soluble Fiber': 1}
 Ingredient(**data)
 ```
 
-<div class="output execute_result" execution_count="2">
+<div class="output execute_result" execution_count="21">
 
     name      servings  amount      dollar    soluble fiber
     ------  ----------  --------  --------  ---------------
@@ -52,14 +52,14 @@ Ingredient(**data)
 
 </div>
 
-<div class="cell code" execution_count="3">
+<div class="cell code" execution_count="22">
 
 ``` python
 # nutritional value of 2 apples (summed)
 2 * apple
 ```
 
-<div class="output execute_result" execution_count="3">
+<div class="output execute_result" execution_count="22">
 
     name      servings  amount      calories    protein    fiber    dollars
     ------  ----------  --------  ----------  ---------  -------  ---------
@@ -81,7 +81,7 @@ apple.
 
 </div>
 
-<div class="cell code" execution_count="4">
+<div class="cell code" execution_count="23">
 
 ``` python
 # A smaller apple
@@ -90,7 +90,7 @@ apple2.set_servings(1)
 apple2
 ```
 
-<div class="output execute_result" execution_count="4">
+<div class="output execute_result" execution_count="23">
 
     name      servings  amount      calories    protein    fiber    dollars
     ------  ----------  --------  ----------  ---------  -------  ---------
@@ -108,14 +108,14 @@ say 3 grams of fiber. Simple, just supply fiber as the parameter of the
 
 </div>
 
-<div class="cell code" execution_count="5">
+<div class="cell code" execution_count="24">
 
 ``` python
 # How much to eat to reach 3g of fibers?
 apple.to(fiber=3)
 ```
 
-<div class="output execute_result" execution_count="5">
+<div class="output execute_result" execution_count="24">
 
     name      servings  amount        calories    protein    fiber    dollars
     ------  ----------  ----------  ----------  ---------  -------  ---------
@@ -132,7 +132,7 @@ below calculates the nutritional value of apple milk.
 
 </div>
 
-<div class="cell code" execution_count="6">
+<div class="cell code" execution_count="25">
 
 ``` python
 # Apple milk nutritional value per 1g of protein
@@ -141,7 +141,7 @@ below calculates the nutritional value of apple milk.
 apple + milk
 ```
 
-<div class="output execute_result" execution_count="6">
+<div class="output execute_result" execution_count="25">
 
       servings  amount      dollars    calories    fiber    protein
     ----------  --------  ---------  ----------  -------  ---------
@@ -165,7 +165,7 @@ class to represent recipes directly.
 
 </div>
 
-<div class="cell code" execution_count="7">
+<div class="cell code" execution_count="26">
 
 ``` python
 # Create recipe from ingredients
@@ -176,7 +176,7 @@ recipe = Recipe("Fruit Cake", [
 recipe
 ```
 
-<div class="output execute_result" execution_count="7">
+<div class="output execute_result" execution_count="26">
 
     <Recipe (Fruit Cake)>
 
@@ -194,14 +194,14 @@ recipe
 
 </div>
 
-<div class="cell code" execution_count="8">
+<div class="cell code" execution_count="27">
 
 ``` python
 recipe.add(1.5*apple)  # add 1 and a half apples to ingredient
 recipe
 ```
 
-<div class="output execute_result" execution_count="8">
+<div class="output execute_result" execution_count="27">
 
     <Recipe (Fruit Cake)>
 
@@ -226,14 +226,14 @@ recipe
 
 </div>
 
-<div class="cell code" execution_count="9">
+<div class="cell code" execution_count="28">
 
 ``` python
 recipe.rename("Cake")  # rename recipe
 recipe
 ```
 
-<div class="output execute_result" execution_count="9">
+<div class="output execute_result" execution_count="28">
 
     <Recipe (Cake)>
 
@@ -252,13 +252,13 @@ recipe
 
 </div>
 
-<div class="cell code" execution_count="10">
+<div class="cell code" execution_count="29">
 
 ``` python
 recipe.to(amount = '100gram')  # change of basis
 ```
 
-<div class="output execute_result" execution_count="10">
+<div class="output execute_result" execution_count="29">
 
     <Recipe (Cake)>
 
@@ -277,13 +277,13 @@ recipe.to(amount = '100gram')  # change of basis
 
 </div>
 
-<div class="cell code" execution_count="11">
+<div class="cell code" execution_count="30">
 
 ``` python
 recipe.to(amount = '100gram')  # change of basis
 ```
 
-<div class="output execute_result" execution_count="11">
+<div class="output execute_result" execution_count="30">
 
     <Recipe (Cake)>
 
@@ -308,13 +308,13 @@ recipe.to(amount = '100gram')  # change of basis
 
 </div>
 
-<div class="cell code" execution_count="12">
+<div class="cell code" execution_count="31">
 
 ``` python
 recipe
 ```
 
-<div class="output execute_result" execution_count="12">
+<div class="output execute_result" execution_count="31">
 
     <Recipe (Cake)>
 
@@ -333,7 +333,7 @@ recipe
 
 </div>
 
-<div class="cell code" execution_count="13">
+<div class="cell code" execution_count="32">
 
 ``` python
 # Export nutritional value
@@ -343,7 +343,7 @@ recipe.export_xlsx("FruitCake.xlsx")
 
 </div>
 
-<div class="cell code" execution_count="14">
+<div class="cell code" execution_count="33">
 
 ``` python
 from nutrical import import_recipe
@@ -353,7 +353,7 @@ recipe = import_recipe("FruitCake.csv")
 recipe
 ```
 
-<div class="output execute_result" execution_count="14">
+<div class="output execute_result" execution_count="33">
 
     <Recipe (FruitCake)>
 
@@ -372,14 +372,14 @@ recipe
 
 </div>
 
-<div class="cell code" execution_count="15">
+<div class="cell code" execution_count="34">
 
 ``` python
 recipe = import_recipe("FruitCake.xlsx")
 recipe
 ```
 
-<div class="output execute_result" execution_count="15">
+<div class="output execute_result" execution_count="34">
 
     <Recipe (FruitCake)>
 
@@ -404,7 +404,7 @@ recipe
 
 </div>
 
-<div class="cell code" execution_count="16">
+<div class="cell code" execution_count="35">
 
 ``` python
 from nutrical.utils import UREG
@@ -423,7 +423,7 @@ water_weight = UREG(f"{target_total_weight} gram") - probio.total_amount - powde
 
 </div>
 
-<div class="cell code" execution_count="17">
+<div class="cell code" execution_count="36">
 
 ``` python
 yogurt = Recipe("yogurt", components=[
@@ -434,7 +434,7 @@ yogurt = Recipe("yogurt", components=[
 yogurt
 ```
 
-<div class="output execute_result" execution_count="17">
+<div class="output execute_result" execution_count="36">
 
     <Recipe (yogurt)>
 
@@ -453,13 +453,13 @@ yogurt
 
 </div>
 
-<div class="cell code" execution_count="18">
+<div class="cell code" execution_count="37">
 
 ``` python
 yogurt.to(amount='100g')
 ```
 
-<div class="output execute_result" execution_count="18">
+<div class="output execute_result" execution_count="37">
 
     <Recipe (yogurt)>
 
@@ -502,7 +502,7 @@ help with this.
 
 </div>
 
-<div class="cell code" execution_count="19">
+<div class="cell code" execution_count="38">
 
 ``` python
 from nutrical import Rank
@@ -523,15 +523,15 @@ Rank( sources_of_protein, by='price', protein=1 )
 
 <div class="output stream stdout">
 
-        name               dollars    protein
-    --  ---------------  ---------  ---------
-     1  Whey                  0.62          1
-     2  Egg (raw)             1             1
-     3  Tofu                  1.03          1
-     4  Dry milk              1.25          1
-     5  Casein                1.65          1
-     6  Egg (7-11)            1.67          1
-     7  Soy milk (7-11)       1.84          1
+        name               price    protein
+    --  ---------------  -------  ---------
+     1  Whey                0.62          1
+     2  Egg (raw)           1             1
+     3  Tofu                1.03          1
+     4  Dry milk            1.25          1
+     5  Casein              1.65          1
+     6  Egg (7-11)          1.67          1
+     7  Soy milk (7-11)     1.84          1
 
 </div>
 
